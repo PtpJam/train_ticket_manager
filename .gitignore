@@ -1,9 +1,4 @@
-obj/
 bin/
-*.json
-
+obj/
+*.config
 *.csproj
-
-.git
-README.md
-LICENSE

@@ -1,0 +1,9 @@
+obj/
+bin/
+*.json
+
+*.csproj
+
+.git
+README.md
+LICENSE

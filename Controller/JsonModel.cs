@@ -2,10 +2,10 @@ namespace TestDapper.Controller
 {
     public class JsonModel
     {
-        public JsonModel(string Source = "SQL5104.site4now.net", 
-            string Port = "1433",
-            string DatabaseName = "db_a8501a_dima",
-            string UserId = "db_a8501a_dima_admin", string Password = "qwerty123")
+        public JsonModel(string Source, 
+            string Port,
+            string DatabaseName,
+            string UserId, string Password)
         {
             this.Source = Source;
             this.Port = Port;

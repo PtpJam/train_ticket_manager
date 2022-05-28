@@ -1,4 +1,10 @@
-bin/
+*.json
+
 obj/
-*.config
+bin/
 *.csproj
+
+.git
+README.md
+LICENSE
+.gitignore

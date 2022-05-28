@@ -5,9 +5,9 @@ namespace TestDapper.Controller
 {
     public class ControllerJson
     {
-        public ControllerJson()
+        public ControllerJson(string filename = "database.json")
         {
-            m_jsonModel = JsonConvert.DeserializeObject<JsonModel>(File.ReadAllText("database.json"));
+            m_jsonModel = JsonConvert.DeserializeObject<JsonModel>(File.ReadAllText(filename));
         }
 
         private JsonModel? m_jsonModel;
@@ -17,8 +17,7 @@ namespace TestDapper.Controller
                 if (m_jsonModel != null) 
                     return m_jsonModel;
                 else 
-                    throw new NullReferenceException("Can't open json file or file empty"); 
-
+                    throw new NullReferenceException("Can't open json file or file is empty"); 
                 } 
         }
     }

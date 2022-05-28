@@ -1,7 +1,4 @@
 ﻿using System.Data.SqlClient;
-using Dapper.Contrib.Extensions;
-using Dapper.Contrib;
-using TestDapper;
 using TestDapper.Controller;
 
 namespace TestDapper // Note: actual namespace depends on the project name.
@@ -10,8 +7,7 @@ namespace TestDapper // Note: actual namespace depends on the project name.
     {
         static void Main(string[] args)
         {
-            ControllerJson controller = new ControllerJson();
-            SqlConnection connection = new DatabaseConnection(controller.jsonModel).connection;
+            SqlConnection connection = new DatabaseConnection(new ControllerJson().jsonModel).connection;
 
             // do something
 

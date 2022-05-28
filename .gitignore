@@ -1,0 +1,10 @@
+*.json
+
+obj/
+bin/
+*.csproj
+
+.git
+README.md
+LICENSE
+.gitignore

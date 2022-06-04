@@ -3,7 +3,7 @@ using Dapper.Contrib.Extensions;
 namespace TestDapper.Model
 {
     [Table("Train")]
-    class Train
+    public class Train
     {
         public Train()
         {}

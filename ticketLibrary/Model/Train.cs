@@ -3,13 +3,16 @@ using Dapper.Contrib.Extensions;
 namespace TestDapper.Model
 {
     [Table("Train")]
-    class TrainModel
+    public class Train
     {
-        public TrainModel()
+        public Train()
         {}
         
-        public TrainModel(int Id, int Carriage_id,
-        int Amount_of_carriage, int Staff_id)
+        public Train(int Id, 
+            int Carriage_id,
+            int Amount_of_carriage, 
+            int Staff_id
+        )
         {
             this.Id = Id;
             this.Carriage_id = Carriage_id;

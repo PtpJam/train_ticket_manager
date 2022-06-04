@@ -3,13 +3,15 @@ using Dapper.Contrib.Extensions;
 namespace TestDapper.Model
 {
     [Table("CarriageType")]
-    class CarriageTypeModel
+    public class Carriage_type
     {
-        public CarriageTypeModel()
+        public Carriage_type()
         {}
 
-        public CarriageTypeModel(int Id, 
-        string Type)
+        public Carriage_type(
+            int Id, 
+            string Type
+        )
         {
             this.Id = Id;
             this.Type = Type;

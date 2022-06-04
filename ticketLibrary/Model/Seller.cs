@@ -3,15 +3,17 @@ using Dapper.Contrib.Extensions;
 namespace TestDapper.Model
 {
     [Table("Seller")]
-    class SellerModel
+    public class Seller
     {
-        public SellerModel()
+        public Seller()
         {}
 
-        public SellerModel(int Id, 
-        string Login, 
-        string Password, 
-        DateTime Last_login_time, int Personal_data)
+        public Seller(int Id, 
+            string Login, 
+            string Password, 
+            DateTime Last_login_time, 
+            int Personal_data
+        )
         {
             this.Id = Id;
             this.Login = Login;

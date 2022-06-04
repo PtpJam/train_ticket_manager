@@ -3,15 +3,15 @@ using Dapper.Contrib.Extensions;
 namespace TestDapper.Model
 {
     [Table("Ticket")]
-    class TicketModel
+    public class Ticket
     {
-        public TicketModel()
+        public Ticket()
         {}
 
-        public TicketModel(int Id, 
-        int Schedule, 
-        int Carriage, 
-        int CarriageType)
+        public Ticket(int Id, 
+            int Schedule, 
+            int Carriage
+        )
         {
             this.Id = Id;
             this.Schedule = Schedule;

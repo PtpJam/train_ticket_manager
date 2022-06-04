@@ -3,17 +3,19 @@ using Dapper.Contrib.Extensions;
 namespace TestDapper.Model
 {
     [Table("Passport")]
-    class PassportModel
+    public class Passport
     {
-        public PassportModel()
+        public Passport()
         {}
 
-        public PassportModel(int Id, 
-        string Issue_place, 
-        int Serial_number, 
-        string Name,
-        string Father_name,
-        string Surname, int Staff_id)
+        public Passport(int Id, 
+            string Issue_place, 
+            int Serial_number, 
+            string Surname, 
+            string Father_name,
+            string Name,
+            int Staff_id
+        )
         {
             this.Id = Id;
             this.Issue_place = Issue_place;

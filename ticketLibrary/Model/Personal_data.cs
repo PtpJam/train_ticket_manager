@@ -22,10 +22,10 @@ namespace TestDapper.Model
         }
 
         [Key] public int Id { get; set; }
-        public string? Name { get; set; }
-        public string? Last_name { get; set; }
-        public string? Father_name { get; set; }
-        int Age { get; set; }
+        public string Name { get; set; }
+        public string Last_name { get; set; }
+        public string Father_name { get; set; }
+        public int Age { get; set; }
 
     }
 }

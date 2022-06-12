@@ -1,5 +1,6 @@
 ﻿using TestDapper.Model;
 using Dapper.Contrib.Extensions;
+using System.Data.SqlClient;
 
 namespace TestDapper.Controller.Database
 {
@@ -10,10 +11,10 @@ namespace TestDapper.Controller.Database
             var connection = new DatabaseConnection(new ControllerJson().jsonModel).connection;
 
             Sellers = connection.GetAll<Seller>() as List<Seller>;
+            connection.Close();
         }
-        public void Add(Seller obj)
+        public void Add(Seller obj, SqlConnection connection)
         {
-            var connection = new DatabaseConnection(new ControllerJson().jsonModel).connection;
             Sellers.Add(obj);
             connection.Insert<Seller>(obj);
         }
@@ -24,6 +25,6 @@ namespace TestDapper.Controller.Database
             private set => Sellers[index] = value;
         }
 
-        private List<Seller> Sellers;
+        public List<Seller> Sellers{ get; private set; }
     }
 }

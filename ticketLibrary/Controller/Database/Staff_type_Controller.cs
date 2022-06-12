@@ -1,31 +1,33 @@
 ﻿using Dapper.Contrib.Extensions;
 using System.Data.SqlClient;
 using TestDapper.Model;
+using System.Data.SqlClient;
 
 namespace TestDapper.Controller.Database
 {
-    public class Staff_type_Controller
+    public class Staff_Controller
     {
-        public Staff_type_Controller()
+        public Staff_Controller()
         {
             SqlConnection connection = new DatabaseConnection(new ControllerJson().jsonModel).connection;
 
-            StaffTypes = connection.GetAll<Staff_type>() as List<Staff_type>;
+            StaffTypes = connection.GetAll<Staff>() as List<Staff>;
+            connection.Close();
         }
 
-        public void Add(Staff_type obj)
+        public void Add(Staff obj, SqlConnection connection)
         {
-            var connection = new DatabaseConnection(new ControllerJson().jsonModel).connection;
             StaffTypes.Add(obj);
-            connection.Insert<Staff_type>(obj);
+            connection.Insert<Staff>(obj);
         }
 
-        public Staff_type this[int index]
+        public Staff this[int index]
         {
             get => StaffTypes[index];
             private set => StaffTypes[index] = value;
         }
 
-        private List<Staff_type> StaffTypes;
+        public List<Staff> StaffTypes { get; private set; }
+        
     }
 }

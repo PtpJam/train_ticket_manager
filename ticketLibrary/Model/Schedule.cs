@@ -12,8 +12,8 @@ namespace TestDapper.Model
             int Trip, 
             int Train, 
             int Track,
-            DateTime Departure, 
-            DateTime Arrival
+            string Departure, 
+            string Arrival
         )
         {
             this.Id = Id;
@@ -28,8 +28,8 @@ namespace TestDapper.Model
         public int Trip { get; set; }
         public int Train { get; set; }
         public int Track { get; set; }
-        public DateTime Departure { get; set; }
-        public DateTime Arrival { get; set; }
+        public string? Departure { get; set; }
+        public string? Arrival { get; set; }
 
 
         // TODO: Implement table data

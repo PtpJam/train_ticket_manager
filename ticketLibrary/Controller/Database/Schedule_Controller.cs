@@ -1,5 +1,6 @@
 ﻿using TestDapper.Model;
 using Dapper.Contrib.Extensions;
+using System.Data.SqlClient;
 
 namespace TestDapper.Controller.Database
 {
@@ -10,11 +11,11 @@ namespace TestDapper.Controller.Database
             var connection = new DatabaseConnection(new ControllerJson().jsonModel).connection;
 
             Schedules = connection.GetAll<Schedule>() as List<Schedule>;
+            connection.Close();
         }
 
-        public void Add(Schedule obj)
-        {
-            var connection = new DatabaseConnection(new ControllerJson().jsonModel).connection;
+        public void Add(Schedule obj, SqlConnection connection)
+        {  
             Schedules.Add(obj);
             connection.Insert<Schedule>(obj);
         }
@@ -25,6 +26,6 @@ namespace TestDapper.Controller.Database
             private set => Schedules[index] = value;
         }
 
-        private List<Schedule> Schedules;
+        public  List<Schedule> Schedules{ get; private set; }
     }
 }

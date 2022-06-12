@@ -2,7 +2,7 @@ using Dapper.Contrib.Extensions;
 
 namespace TestDapper.Model
 {
-    [Table("CarriageType")]
+    [Table("Carriage_type")]
     public class Carriage_type
     {
         public Carriage_type()

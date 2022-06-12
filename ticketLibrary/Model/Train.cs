@@ -25,6 +25,5 @@ namespace TestDapper.Model
         public int Amount_of_carriage { get; set; }
         public int Staff_id { get; set; }
 
-        // TODO: Implement table data
     }
 }

@@ -1,5 +1,6 @@
 ﻿using TestDapper.Model;
 using Dapper.Contrib.Extensions;
+using System.Data.SqlClient;
 
 namespace TestDapper.Controller.Database
 {
@@ -10,12 +11,16 @@ namespace TestDapper.Controller.Database
             var connection = new DatabaseConnection(new ControllerJson().jsonModel).connection;
 
             Passports = connection.GetAll<Passport>() as List<Passport>;
+            connection.Close();
         }
-        public void Add(Passport obj)
+        public void Add(Passport obj, SqlConnection connection)
         {
-            var connection = new DatabaseConnection(new ControllerJson().jsonModel).connection;
             Passports.Add(obj);
             connection.Insert<Passport>(obj);
+            // string sqlExpression = $"INSERT INTO Passport (Issue_place, Serial_number, Surname, Father_name, Name, Staff_id) VALUES (\'{obj.Issue_place}\', {obj.Serial_number}, \'{obj.Surname}\', \'{obj.Father_name}\', \'{obj.Name}\', {obj.Staff_id});";
+            // connection.Open();
+            // SqlCommand command = new SqlCommand(sqlExpression, connection);
+            // command.ExecuteNonQuery();
         }
 
         public Passport this[int index]
@@ -24,6 +29,6 @@ namespace TestDapper.Controller.Database
             private set => Passports[index] = value;
         }
 
-        private List<Passport> Passports;
+        public List<Passport> Passports{ get; private set; }
     }
 }

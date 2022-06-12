@@ -1,5 +1,6 @@
 ﻿using TestDapper.Model;
 using Dapper.Contrib.Extensions;
+using System.Data.SqlClient;
 
 namespace TestDapper.Controller.Database
 {
@@ -10,10 +11,10 @@ namespace TestDapper.Controller.Database
             var connection = new DatabaseConnection(new ControllerJson().jsonModel).connection;
 
             Carriage_types = connection.GetAll<Carriage_type>() as List<Carriage_type>;
+            connection.Close();
         }
-        public void Add(Carriage_type obj)
+        public void Add(Carriage_type obj, SqlConnection connection)
         {
-            var connection = new DatabaseConnection(new ControllerJson().jsonModel).connection;
             Carriage_types.Add(obj);
             connection.Insert<Carriage_type>(obj);
         }
@@ -24,6 +25,6 @@ namespace TestDapper.Controller.Database
             private set => Carriage_types[index] = value;
         }
 
-        private List<Carriage_type> Carriage_types;
+        public List<Carriage_type> Carriage_types{ get; private set;}
     }
 }

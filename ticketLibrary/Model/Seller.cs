@@ -11,7 +11,7 @@ namespace TestDapper.Model
         public Seller(int Id, 
             string Login, 
             string Password, 
-            DateTime Last_login_time, 
+            string? Last_login_time, 
             int Personal_data
         )
         {
@@ -25,7 +25,7 @@ namespace TestDapper.Model
         [Key] public int Id { get; set; }
         public string? Login { get; set; }
         public string? Password { get; set; }
-        public DateTime Last_login_time { get; set; }
+        public string? Last_login_time { get; set; }
         public int Personal_data { get; set; }
 
         // TODO: Implement table data

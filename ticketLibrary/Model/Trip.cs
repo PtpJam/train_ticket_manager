@@ -12,7 +12,7 @@ namespace TestDapper.Model
             int Id, 
             string? Destination,
             string? From, 
-            DateTime Time_in_trip, 
+            string? Time_in_trip, 
             int Train_id
         )
         {
@@ -26,9 +26,15 @@ namespace TestDapper.Model
         [Key] public int Id { get; set; }
         public string? Destination { get; set; }
         public string? From { get; set; }
-        public DateTime Time_in_trip { get; set;}
-        public int Train_id { get; set;}
+        public string? Time_in_trip { get; set; }
+        public int? Train_id { get; set; }
 
-        // TODO: Implement table data
+        public override string ToString()
+        {
+            if (Train_id is not null)
+                return $"{Id,-20} {Destination,-5} {From,-5} {Time_in_trip,-5} {Train_id,-5}";
+            else 
+                return "Class Train is null!";
+        }
     }
 }
